@@ -7,6 +7,10 @@ def first_config(project, apps, database):
     subprocess.run(['django-admin', 'startproject', project])
     os.chdir(project)
     subprocess.run(['mkdir', 'templates'])
+    os.chdir('templates')
+    for app in apps:
+        subprocess.run(['mkdir', app])
+    os.chdir('..')
     subprocess.run(['mkdir', 'static'])
     subprocess.run(['mkdir', 'apps'])
 
